@@ -1,0 +1,10 @@
+.blog-content .max-w-prose {
+    max-width: 100% !important;
+}
+.blog-content .prose {
+    max-width: 100% !important;
+}
+
+.blog-item-title:hover {
+    color: #22d3ee ;
+}

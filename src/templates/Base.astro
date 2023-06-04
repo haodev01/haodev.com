@@ -1,0 +1,40 @@
+---
+import { Navbar } from "@/partials/Navbar";
+import { AppConfig } from "@/utils/AppConfig";
+import { IFrontmatter } from "astro-boilerplate-components";
+import { CTA } from "@/partials/CTA";
+import { sortByDate } from "@/utils/Posts";
+export interface Props {
+  head: {
+    title: string;
+    description: string;
+  };
+}
+
+const {
+  head: { title, description },
+} = Astro.props as Props;
+const allPosts = await Astro.glob<IFrontmatter>("../pages/posts/*.md");
+const sortedPosts = sortByDate(allPosts);
+const lastThreePosts = sortedPosts.slice(0, 4);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={AppConfig.author} />
+
+    <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="../styles/global.css" />
+  </head>
+  <body class="bg-slate-900 text-gray-100">
+    <Navbar />
+
+    <slot />
+    <CTA postList={lastThreePosts} />
+  </body>
+</html>

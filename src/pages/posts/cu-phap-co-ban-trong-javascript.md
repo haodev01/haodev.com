@@ -1,0 +1,9 @@
+---
+layout: "@/templates/BasePost.astro"
+title: Các cú pháp cơ bản trong Javascript
+description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi.
+pubDate: 2020-02-01T00:00:00Z
+imgSrc: "/assets/images/image-post7.jpeg"
+imgAlt: "Image post 7"
+tags: ["ReactJS"]
+---
